@@ -61,6 +61,9 @@ namespace ThreatLens.Data.Migrations
 
                     b.HasIndex("KeyPrefix");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("ApiKeys");
                 });
 
@@ -143,6 +146,25 @@ namespace ThreatLens.Data.Migrations
                     b.HasIndex("Correlated", "Severity");
 
                     b.ToTable("LogEvents");
+                });
+
+            modelBuilder.Entity("ThreatLens.Domain.ServiceCredential", b =>
+                {
+                    b.Property<string>("Name")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("RawKey")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.HasKey("Name");
+
+                    b.ToTable("ServiceCredentials");
                 });
 #pragma warning restore 612, 618
         }
