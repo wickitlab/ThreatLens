@@ -24,7 +24,7 @@ Log aggregation and correlation engine built on .NET Aspire - Postgres, Redis, E
 ### Clone and build
 
 ```bash
-git clone https://github.com/w1ck3ds0d4/ThreatLens.git
+git clone https://github.com/wickitlab/ThreatLens.git
 cd ThreatLens
 dotnet restore
 dotnet build
